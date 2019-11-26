@@ -22,9 +22,9 @@ bq mk --table metric_export.sd_metrics_params ./bigquery_schemas/bigquery_schema
 Generate a new token and then replace that token in the each of config.py files. Use this same token in the Cloud Scheduler.
 ```sh
 TOKEN=$(python -c "import uuid;  msg = uuid.uuid4(); print msg")
-sed -i s/16b2ecfb-7734-48b9-817d-4ac8bd623c87/$TOKEN/g stackdriver-metrics-export/list_metrics/config.py
-sed -i s/16b2ecfb-7734-48b9-817d-4ac8bd623c87/$TOKEN/g stackdriver-metrics-export/get_timeseries/config.py
-sed -i s/16b2ecfb-7734-48b9-817d-4ac8bd623c87/$TOKEN/g stackdriver-metrics-export/write_metrics/config.py
+sed -i s/16b2ecfb-7734-48b9-817d-4ac8bd623c87/$TOKEN/g ./list_metrics/config.py
+sed -i s/16b2ecfb-7734-48b9-817d-4ac8bd623c87/$TOKEN/g ./get_timeseries/config.py
+sed -i s/16b2ecfb-7734-48b9-817d-4ac8bd623c87/$TOKEN/g ./write_metrics/config.py
 ```
 
 4. Deploy the App Engine apps
